@@ -16,6 +16,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "firebase": "^7.24.0",
+    "rxfire": "^3.13.5",
+    "rxjs": "^6.6.3",
     "sirv-cli": "^1.0.0"
   }
 }

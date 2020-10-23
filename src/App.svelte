@@ -4,13 +4,19 @@
     console.log('searching');
     console.log(searchValue)
   }
+  import Login from './Login.svelte';
 </script>
+
+<svelte:head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
+</svelte:head>
 
 <main>
 	<h1>Search Pirate!</h1>
 	<label for="search">Search</label>
 	<input id="search" bind:value={searchValue} />
 	<button on:click={search}>Search</button>
+	<Login />
 </main>
 
 <style>
