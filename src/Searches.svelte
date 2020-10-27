@@ -1,24 +1,23 @@
 <script>
-  import TodoItem from './TodoItem.svelte';
+  import SearchItem from './SearchItem.svelte';
   import { db } from './firebase';
   import { collectionData } from 'rxfire/firestore';
   import { startWith } from 'rxjs/operators';
   export let uid;
   let text = 'some task';
-  const query = db.collection('todos').where('uid', '==', uid).orderBy('created');
-  const todos = collectionData(query, 'id').pipe(startWith([]));
+  const query = db.collection('searches').where('uid', '==', uid).orderBy('created');
+  const searches = collectionData(query, 'id').pipe(startWith([]));
   function add() {
-      db.collection('todos').add({ uid, text, complete: false, created: Date.now() });
+      db.collection('searches').add({ uid, text, complete: false, created: Date.now() });
       text = '';
   }
   function updateStatus(event) {
-      console.log(event);
       const { id, newStatus } = event.detail;
-      db.collection('todos').doc(id).update({ complete: newStatus });
+      db.collection('searches').doc(id).update({ complete: newStatus });
   }
   function removeItem(event) {
       const { id } = event.detail;
-      db.collection('todos').doc(id).delete();
+      db.collection('searches').doc(id).delete();
   }
 </script>
 
@@ -27,8 +26,8 @@
 </style>
 
 <ul>
-{#each $todos as todo}
-  <TodoItem {...todo} on:remove={removeItem} on:toggle={updateStatus} />
+{#each $searches as search}
+  <SearchItem {...search} on:remove={removeItem} on:toggle={updateStatus} />
 {/each}
 </ul>
 

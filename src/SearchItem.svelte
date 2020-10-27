@@ -8,15 +8,14 @@
 }
 function toggleStatus() {
       let newStatus = !complete;
-  dispatch('toggle', {
-          id,
-          newStatus
-      });
+  dispatch('toggle', { id, newStatus });
   }
   
   export let id; // document ID
   export let text;
   export let complete;
+  export let uid;
+  export let created;
 </script>
 
 <style>
