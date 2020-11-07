@@ -47,6 +47,11 @@ input[type="range"] {
 	height: 0;
 }
 
+#search {
+	min-width: 500px;
+	min-height: 34px;
+}
+
 button {
 	background-color: #f4f4f4;
 	outline: none;

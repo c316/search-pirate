@@ -15,17 +15,16 @@
 
 <style>
   section {
-    background: rgb(235, 235, 235);
+    /* background: rgb(235, 235, 235); */
     padding: 20px;
   }
 </style>
 
 <section>
   {#if $user}
+    <Searches uid={$user.uid} />
     <Profile photoURL={$user.photoURL} uid={$user.uid} displayName={$user.displayName} />
     <button on:click={ () => auth.signOut() } class="button">Logout</button>
-    <hr>
-    <Searches uid={$user.uid} />
   {:else}
     <button on:click={login} class="button">
       Signin with Google
