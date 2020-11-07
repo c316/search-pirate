@@ -14,8 +14,6 @@ function toggleStatus() {
   export let id; // document ID
   export let text;
   export let complete;
-  export let uid;
-  export let created;
 </script>
 
 <style>
